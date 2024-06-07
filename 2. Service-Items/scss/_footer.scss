@@ -1,0 +1,87 @@
+
+// footer 表尾 設計
+footer {
+    border: 1px $c-FAFAFA solid;
+    background: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-lg.png?raw=true);
+}
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 0;
+}
+.footer-logo {
+    width: 120px;
+    height: 54px;
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    @include fs-5;
+    @include fw-400;
+
+    a {
+        @include fz-h5;
+        @include fw-400;
+        color: $c-919191; 
+    }
+}
+.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    @include fs-5;
+    @include fw-700;
+    li{
+        width: 306px;
+        a {
+            display: flex;
+            align-items: center;
+            padding: 8px 0 8px 24px;
+            gap:8px;
+            border-radius: 8px;
+            outline: 1px $c-C1C1C1 solid;
+            img {
+                border-radius: 8px;
+            }
+        }
+    } 
+}
+
+.froms {
+    color: $c-FFFFFF;
+    background-color: $c-000000;
+}
+// footer樣式變化
+/*如果螢幕寬度為 1336px 以下，就套用 css 設定*/
+@media (max-width:1336px) {
+    .footer {
+        padding: 80px 20px;
+    }
+}
+/*如果螢幕寬度為 767px 以下，就套用 css 設定*/
+@media (max-width:767px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 12px;
+        gap: 40px;
+    }
+    .footer-content {
+        align-items: center;
+        @include fs-6;
+        @include fw-400;
+    }
+    .contact li a {
+        padding: 4px 0 4px 24px;
+    }
+    
+}
+/*如果螢幕寬度為 375px 以下，就套用 css 設定*/
+@media (max-width:375px) {
+    footer {
+        background: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-sm.png?raw=true);
+    }
+}
+// footer表尾 end

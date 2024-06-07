@@ -1,0 +1,913 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* CSS :start */
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.contenter {
+  max-width: 1296px;
+  margin: 0 auto;
+  min-width: 370px;
+}
+
+header {
+  border: 1px #F1F1F1 solid;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 28px 12px;
+}
+
+.logo {
+  width: 90px;
+}
+
+.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 32px;
+}
+
+.menu-list {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  position: relative;
+  padding: 4px 8px;
+}
+
+.border_corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  opacity: 0;
+}
+
+.border-corner-top-left {
+  border-left: 1px solid #919191;
+  border-top: 1px solid #919191;
+  left: 0px;
+  top: 0px;
+}
+
+.border-corner-top-right {
+  border-top: 1px solid #919191;
+  border-right: 1px solid #919191;
+  top: 0px;
+  right: 0px;
+}
+
+.border-corner-bottom-left {
+  border-bottom: 1px solid #919191;
+  border-left: 1px solid #919191;
+  left: 0px;
+  bottom: 0px;
+}
+
+.border-corner-bottom-right {
+  border-bottom: 1px solid #919191;
+  border-right: 1px solid #919191;
+  right: 0px;
+  bottom: 0px;
+}
+
+.menu-list:hover {
+  font-weight: 600;
+}
+
+.menu-list:hover .border_corner {
+  opacity: 1;
+}
+
+.menu-btn {
+  visibility: hidden;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  cursor: pointer;
+}
+
+.menu-btn .menu-icon {
+  display: none;
+}
+
+.menu-control:checked + .menu-btn .open-btn {
+  display: none;
+}
+
+.menu-control:checked + .menu-btn .close-btn {
+  display: inline;
+}
+
+.menu-control:not(:checked) + .menu-btn .open-btn {
+  display: inline;
+}
+
+.menu-control:not(:checked) + .menu-btn .close-btn {
+  display: none;
+}
+
+.menu-control {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .header {
+    padding: 8px 12px;
+  }
+  .logo {
+    width: 74px;
+    height: 33px;
+  }
+  .menu-btn {
+    visibility: visible;
+  }
+  .menu {
+    display: none;
+  }
+  .menu-control:checked ~ .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: absolute;
+    top: 59px;
+    right: 0;
+    gap: 25px;
+    background-color: #fff;
+    padding: 25px 0;
+    border-top: 1px #F1F1F1 solid;
+    border-bottom: 1px #F1F1F1 solid;
+  }
+}
+footer {
+  border: 1px #FAFAFA solid;
+  background: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-lg.png?raw=true);
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 80px 0;
+}
+
+.footer-logo {
+  width: 120px;
+  height: 54px;
+}
+
+.footer-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 24px;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.footer-content a {
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #919191;
+}
+
+.contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 24px;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+.contact li {
+  width: 306px;
+}
+.contact li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 8px 0 8px 24px;
+  gap: 8px;
+  border-radius: 8px;
+  outline: 1px #C1C1C1 solid;
+}
+.contact li a img {
+  border-radius: 8px;
+}
+
+.froms {
+  color: #FFFFFF;
+  background-color: #000000;
+}
+
+/*如果螢幕寬度為 1336px 以下，就套用 css 設定*/
+@media (max-width: 1336px) {
+  .footer {
+    padding: 80px 20px;
+  }
+}
+/*如果螢幕寬度為 767px 以下，就套用 css 設定*/
+@media (max-width: 767px) {
+  .footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 40px 12px;
+    gap: 40px;
+  }
+  .footer-content {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  .contact li a {
+    padding: 4px 0 4px 24px;
+  }
+}
+/*如果螢幕寬度為 375px 以下，就套用 css 設定*/
+@media (max-width: 375px) {
+  footer {
+    background: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-sm.png?raw=true);
+  }
+}
+/* 導入字體 */
+body {
+  font-family: "Noto Sans", "Noto Sans TC", "Tourney", sans-serif;
+  /* font-family:第一種字體, 第二種字體, "第三種 字體", "通用字"; */
+  /* 通用字會寫在 font-family 的最後面 */
+  /* sans-serif ( 無襯線體 ) */
+}
+
+/* 導入字體 */
+.paragraph {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 120px 0;
+  gap: 80px;
+}
+
+@media (max-width: 767px) {
+  .paragraph {
+    padding: 80px 0;
+    gap: 80px;
+  }
+}
+@media (max-width: 375px) {
+  .paragraph {
+    gap: 40px;
+  }
+}
+.paragraph-title {
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-indent: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.title-deco {
+  display: inline-block;
+  width: 94px;
+  height: 1px;
+  background-color: #C1C1C1;
+  position: relative;
+  margin: 0 16px;
+}
+.title-deco::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border: 3px solid #C1C1C1;
+  border-radius: 50%;
+  background-color: #C1C1C1;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.deco-left::before {
+  left: -6px;
+}
+
+.deco-right::before {
+  right: -6px;
+}
+
+@media (max-width: 767px) {
+  .paragraph-title {
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-indent: 3px;
+  }
+  .title-deco {
+    width: 50px;
+  }
+}
+.service-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 12px 1.85%;
+}
+
+.service-items-list {
+  max-width: 306px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.service-items-bg {
+  border-radius: 16px;
+}
+
+.service-icon-name {
+  position: absolute;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 24px;
+}
+
+.service-name {
+  font-size: 28px;
+  line-height: 1.5;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+/*如果螢幕寬度為 767px 以下，就套用 css 設定*/
+@media (max-width: 767px) {
+  .service-list {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 24px;
+  }
+  .service-items-list {
+    max-width: 45%;
+  }
+}
+/*如果螢幕寬度為 375px 以下，就套用 css 設定*/
+@media (max-width: 375px) {
+  .service-items {
+    padding: 40px 0 40px 0;
+    gap: 40px;
+  }
+  .service-list {
+    gap: 24px;
+  }
+  .service-items-list {
+    max-width: 100%;
+  }
+}
+.process-box {
+  background: url(https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2024%20web-camp/process-bg.png);
+}
+
+.process {
+  max-width: 655px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 80px;
+}
+.process .paragraph-title {
+  color: #FFFFFF;
+}
+
+.process-step {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 64px;
+  width: 100%;
+}
+
+.step {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 24px 32px;
+  gap: 32px;
+  background-color: #3B3B3B;
+  outline: 1px #919191 solid;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.process-number {
+  color: #919191;
+  font-size: 72px;
+  line-height: 86.4px;
+  font-weight: 400;
+  font-family: "Tourney";
+}
+
+.process-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+}
+
+.process-name {
+  color: #FFFFFF;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.process-content {
+  color: #E9E9E9;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/*如果螢幕寬度為 767px 以下，就套用 css 設定*/
+@media (max-width: 767px) {
+  .process {
+    max-width: 351px;
+    gap: 40px;
+  }
+  .process-number {
+    font-size: 48px;
+    line-height: 57.6px;
+  }
+  .process-name {
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 700;
+    text-align: center;
+  }
+  .step {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 4px;
+    padding: 24px 24px 48px 24px;
+  }
+}
+.price {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 24px;
+}
+
+.price-color {
+  color: #000000;
+}
+
+.price-item {
+  width: 33%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 32px;
+  background-color: #FAFAFA;
+  border-radius: 8px;
+  gap: 8px;
+}
+
+.item-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.item-name p {
+  font-size: 28px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #5B5B5B;
+}
+
+.item-price p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.item-price p span {
+  font-size: 32px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.hr-style {
+  width: 9%;
+  border: 1px solid #C1C1C1;
+}
+
+@media (max-width: 1296px) {
+  .price {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    max-width: 416px;
+  }
+  .price-item {
+    width: 100%;
+  }
+}
+@media (max-width: 420px) {
+  .price {
+    max-width: 321px;
+  }
+  .item-name img {
+    width: 40px;
+  }
+  .item-name p {
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  .item-price p {
+    gap: 4px;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  .item-price p span {
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+}
+.list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 80px 2%;
+  margin-bottom: 72px;
+}
+
+.list-item {
+  width: 49%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.list-item img {
+  border-radius: 8px;
+  outline: 1px #F1F1F1 solid;
+  margin-bottom: 16px;
+}
+
+.content {
+  padding: 0 16px;
+}
+
+.work-illustrate {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #919191;
+}
+
+.work-title {
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #3B3B3B;
+  margin-bottom: 8px;
+}
+
+.tag-list {
+  margin-top: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 16px;
+}
+.tag-list a {
+  color: #3B3B3B;
+  background-color: #F1F1F1;
+  border-radius: 99em;
+  display: block;
+  padding: 4px 12px 4px 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  text-decoration: none;
+}
+.tag-list a:hover {
+  color: #F1F1F1;
+  background-color: #3B3B3B;
+}
+
+@media (max-width: 1336px) {
+  .list {
+    margin-right: 12px;
+    margin-left: 12px;
+  }
+}
+/*如果螢幕寬度為 992px 以下，就套用 css 設定*/
+@media (max-width: 992px) {
+  .lsit {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .list-item {
+    width: 100%;
+  }
+}
+/*如果螢幕寬度為 767px 以下，就套用 css 設定*/
+@media (max-width: 767px) {
+  .list-box {
+    padding: 80px 12px;
+  }
+  .list {
+    margin-bottom: 48px;
+  }
+}
+/*如果螢幕寬度為 505px 以下，就套用 css 設定*/
+@media (max-width: 505px) {
+  .list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    gap: 48px;
+    margin-bottom: 72px;
+  }
+  .work-title {
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+}
+.question {
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #3B3B3B;
+}
+
+.answer {
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #5B5B5B;
+}
+
+.FAQ-list {
+  border: 1px solid #E9E9E9;
+  border-radius: 8px;
+  width: 45%;
+  padding: 24px 37px 12px 24px;
+}
+
+.FAQ {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 24px;
+}
+
+@media (max-width: 992px) {
+  .FAQ {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .FAQ-list {
+    width: 80%;
+  }
+}
+@media (max-width: 500px) {
+  .FAQ {
+    width: 335px;
+  }
+  .FAQ-list {
+    width: 100%;
+    padding: 24px;
+  }
+  .question {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .answer {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}

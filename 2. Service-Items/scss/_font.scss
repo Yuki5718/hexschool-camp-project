@@ -1,0 +1,96 @@
+// 標題行高
+@mixin lh-h {
+    line-height: 1.2;
+}
+// 內文行高
+@mixin lh-fs {
+    line-height: 1.5;
+}
+
+// 粗體
+@mixin fw-700 {
+    font-weight: 700;
+}
+@mixin fw-600 {
+    font-weight: 600;
+}
+@mixin fw-400 {
+    font-weight: 400;
+}
+
+// 文字間距
+@mixin letter-lg {
+    letter-spacing: 4px;
+    text-indent: 4px;
+}
+@mixin letter-sm {
+    letter-spacing: 3px;
+    text-indent: 3px;
+}
+@mixin letter-0 {
+    letter-spacing: 0;
+    text-indent: 0;
+}
+
+// 標題字大小
+@mixin fz-h1 {
+    font-size: 40px;
+    @include lh-h;
+}
+@mixin fz-h2 {
+    font-size: 32px;
+    @include lh-h;
+}
+// @mixin 打包
+// @includec 匯入
+@mixin fz-h3 {
+    font-size: 28px;
+    @include lh-h;
+}
+@mixin fz-h4 {
+    font-size: 24px;
+    @include lh-h;
+}
+
+@mixin fz-h5 {
+    font-size: 20px;
+    @include lh-h;
+}
+@mixin fz-h6 {
+    font-size: 16px;
+    @include lh-h;
+}
+
+// 內文文字大小
+@mixin fs-2 {
+    font-size: 32px;
+    @include lh-fs;
+}
+@mixin fs-3 {
+    font-size: 28px;
+    @include lh-fs;
+}
+@mixin fs-4 {
+    font-size: 24px;
+    @include lh-fs;
+}
+@mixin fs-5 {
+    font-size: 20px;
+    @include lh-fs;
+}
+@mixin fs-6 {
+    font-size: 16px;
+    @include lh-fs;
+}
+
+
+$c-000000:#000000;
+$c-1E1E1E:#1E1E1E;
+$c-3B3B3B:#3B3B3B;
+$c-5B5B5B:#5B5B5B;
+$c-919191:#919191;
+$c-C1C1C1:#C1C1C1;
+$c-E9E9E9:#E9E9E9;
+$c-F1F1F1:#F1F1F1;
+$c-FAFAFA:#FAFAFA;
+$c-FFFFFF:#FFFFFF;

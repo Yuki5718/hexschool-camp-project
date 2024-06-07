@@ -1,0 +1,471 @@
+// CSS reset
+@import "reset";
+
+// 全域設定
+@import "base";
+
+// 字體尺寸
+@import "font";
+
+// 表頭 header
+@import "header";
+
+// 表尾 footer
+@import "footer";
+
+// RWD設定
+// @import "RWD";
+
+/* 導入字體 */
+body{
+    font-family: "Noto Sans" , "Noto Sans TC" , "Tourney" , sans-serif;
+    /* font-family:第一種字體, 第二種字體, "第三種 字體", "通用字"; */
+    /* 通用字會寫在 font-family 的最後面 */
+    /* sans-serif ( 無襯線體 ) */
+}
+/* 導入字體 */
+
+// 外框線 - 紅
+// *{
+//     outline: 1px red solid;
+// }
+
+
+.paragraph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 120px 0;
+    gap: 80px;
+}
+@media (max-width:767px) {
+    .paragraph{
+        padding: 80px 0;
+        gap: 80px;
+    }
+}
+@media (max-width:375px) {
+    .paragraph{
+        gap: 40px;
+    }
+}
+
+// 段落標題設計
+.paragraph-title {
+    @include fz-h2;
+    @include fw-600;
+    @include letter-lg;
+    display: flex;
+    align-items: center;
+}
+.title-deco {
+    display: inline-block;
+    width: 94px;
+    height: 1px;
+    background-color: $c-C1C1C1;
+    position: relative;
+    margin: 0 16px;
+    &::before {
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border: 3px solid $c-C1C1C1;
+        border-radius: 50%;
+        background-color: $c-C1C1C1;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+.deco-left::before {
+    left: -6px;
+}
+.deco-right::before {
+    right: -6px;
+}
+
+@media (max-width:767px) {
+    .paragraph-title {
+        @include fz-h4;
+        @include fw-700;
+        @include letter-sm;
+    }
+    .title-deco {
+        width: 50px;
+    }
+}
+
+
+// 服務項目 設計
+.service-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px 1.85%;
+}
+.service-items-list {
+    max-width: 306px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.service-items-bg {
+    border-radius: 16px;
+}
+.service-icon-name {
+    // 浮在背景上
+    position: absolute;
+    z-index: 1;
+    // 浮在背景上
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+.service-name {
+    @include fs-3;
+    @include fw-700;
+    color: $c-FFFFFF;
+}
+// 服務項目 樣式變化
+/*如果螢幕寬度為 767px 以下，就套用 css 設定*/
+@media (max-width:767px) {
+    .service-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+    }
+    .service-items-list {
+        max-width: 45%;
+    }
+}
+/*如果螢幕寬度為 375px 以下，就套用 css 設定*/
+@media (max-width:375px) {
+    .service-items {
+        padding: 40px 0 40px 0;
+        gap: 40px;
+    }
+    .service-list {
+        gap: 24px;
+    }
+    .service-items-list {
+        max-width: 100%;
+    }
+}
+// 服務項目 結束
+
+// ----------------------------------
+
+// 服務流程 process-box 設計
+.process-box {
+    background: url(https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2024%20web-camp/process-bg.png);
+}
+
+.process {
+    max-width: 655px;
+    .paragraph-title {
+        color: $c-FFFFFF;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+.process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+    width: 100%;
+}
+.step {
+    display: flex;
+    align-items: center;
+    padding: 24px 32px;
+    gap: 32px;
+    background-color: $c-3B3B3B;
+    outline: 1px $c-919191 solid;
+    border-radius: 4px;
+    width: 100%;
+}
+.process-number{
+    color: $c-919191;
+    font-size: 72px;
+    line-height: 86.4px;
+    font-weight: 400;
+    font-family: "Tourney";
+}
+.process-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.process-name {
+    color: $c-FFFFFF;
+    @include fz-h3;
+    @include fw-700;
+}
+.process-content{
+    color:$c-E9E9E9;
+    @include fs-5;
+    @include fw-400;
+}
+// 服務流程 樣式變化
+/*如果螢幕寬度為 767px 以下，就套用 css 設定*/
+@media (max-width:767px) {
+    .process {
+        max-width: 351px;
+        gap: 40px;
+    }
+    .process-number{
+        font-size: 48px;
+        line-height: 57.6px;
+    }
+    .process-name {
+        @include fz-h4;
+        @include fw-700;
+        text-align: center;
+    }
+    .step {
+        flex-direction: column;
+        gap: 4px;
+        padding: 24px 24px 48px 24px;
+    }
+}
+// 服務流程 end
+
+// ----------------------------------
+
+//價格表 設計
+.price {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.price-color {
+    color: $c-000000;
+}
+.price-item {
+    width: 33%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px;
+    background-color: $c-FAFAFA;
+    border-radius: 8px;
+    gap: 8px;
+}
+.item-name {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    p {
+        @include fs-3;
+        @include fw-600;
+        color: $c-5B5B5B;
+    }
+}
+
+.item-price p{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    @include fs-6;
+    @include fw-400;
+    span {
+        @include fs-2;
+        @include fw-700;
+    }
+}
+
+.hr-style {
+    width: 9%;
+    border: 1px solid $c-C1C1C1;
+}
+
+@media (max-width:1296px) {
+    .price {
+        flex-direction: column;
+        align-items: center;
+        max-width: 416px;
+    }
+    .price-item {
+        width: 100%;
+    }
+}
+@media (max-width:420px) {
+    .price {
+        max-width: 321px;
+    }
+    .item-name {
+        img {
+            width: 40px;
+        }
+        p {
+            @include fz-h5;
+            @include fw-700;
+        }
+    }
+    .item-price p{
+        gap: 4px;
+        @include fs-6;
+        @include fw-400;
+        span {
+            @include fz-h5;
+            @include fw-700;
+        }
+    }
+}
+
+// ----------------------------------
+
+// 客戶案例 workcase 設計
+.list {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+gap: 80px 2%;
+margin-bottom: 72px;
+}
+.list-item {
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    img{
+        border-radius: 8px;
+        outline: 1px  $c-F1F1F1 solid;
+        margin-bottom: 16px;
+    }
+}
+.content {
+    padding: 0 16px;  
+}
+.work-illustrate {
+    @include fs-6;
+    @include fw-400;
+    color: $c-919191;
+}
+.work-title {
+    @include fz-h3;
+    @include fw-700;
+    color: $c-3B3B3B;
+    margin-bottom: 8px;
+}
+.tag-list {
+    margin-top: 24px;
+    display: flex;
+    gap: 16px;
+    a{
+        color: $c-3B3B3B;
+        background-color: $c-F1F1F1;
+        border-radius: 99em;
+        display: block;
+        padding: 4px 12px 4px 12px;
+        @include fs-6;
+        @include fw-400;
+        text-decoration:none;
+        &:hover{
+            color: $c-F1F1F1;
+            background-color: $c-3B3B3B;
+        }
+    }
+}
+// list 樣式變化
+@media (max-width: 1336px) {
+    .list {
+        margin-right: 12px;
+        margin-left: 12px;
+    }
+}
+
+/*如果螢幕寬度為 992px 以下，就套用 css 設定*/
+@media (max-width: 992px) {
+    .lsit {
+        flex-direction: column;
+    }
+    .list-item {
+        width: 100%;
+    }
+}
+
+
+/*如果螢幕寬度為 767px 以下，就套用 css 設定*/
+@media (max-width:767px) {
+    .list-box {
+        padding: 80px 12px ;
+    }
+    .list {
+        margin-bottom: 48px;
+    }
+}
+
+/*如果螢幕寬度為 505px 以下，就套用 css 設定*/
+@media (max-width: 505px) {
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 48px;
+        margin-bottom: 72px;
+    }
+    .work-title {
+        @include fz-h5;
+        @include fw-700;
+    }
+}
+// ----------------------------------
+// FAQ 常見問題 設計
+
+.question {
+    @include fz-h4;
+    @include fw-700;
+    color: $c-3B3B3B;
+}
+
+.answer{
+    @include fs-5;
+    @include fw-400;
+    color: $c-5B5B5B;
+}
+.FAQ-list {
+    border: 1px solid $c-E9E9E9;
+    border-radius: 8px;
+    width: 45%;
+    padding: 24px 37px 12px 24px;
+    // padding-top: 24px;
+    // padding-left: 24px;
+    // padding-bottom: 12px;
+}
+.FAQ {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:24px;
+}
+
+@media (max-width:992px) {
+    .FAQ {
+        flex-direction: column;
+        align-items: center;
+    }
+    .FAQ-list {
+        width: 80%;
+    }
+}
+@media (max-width:500px) {
+    .FAQ {
+        width: 335px;
+    }
+    .FAQ-list {
+        width: 100%;
+        padding: 24px;
+    }
+    .question {
+        @include fz-h5;
+    }
+    .answer{
+        @include fs-6;
+    }
+}
+// ----------------------------------

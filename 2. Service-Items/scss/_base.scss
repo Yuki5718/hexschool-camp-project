@@ -1,0 +1,25 @@
+*,*::before,*::after {
+    // 盒模型樣式
+    box-sizing: border-box;
+}
+
+img {
+    // 維持原像素比例
+    max-width: 100%;
+    height : auto;
+    // 消除留白問題
+    display: block;
+}
+
+a {
+    // 連結都不要底線
+    text-decoration: none;
+    // 文字顏色改成黑色
+    color: black;
+}
+
+.contenter {
+    max-width: 1296px;
+    margin: 0 auto;
+    min-width: 370px;
+}
